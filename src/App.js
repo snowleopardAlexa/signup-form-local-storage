@@ -55,6 +55,8 @@ function App() {
     const oldAppts = [...appts];
     const newAppts = oldAppts.filter((appt) => appt.id !== id);
     setAppts(newAppts);
+
+    localStorage.setItem("appts", JSON.stringify(newAppts));
   }
 
   useEffect(() => {
