@@ -1,3 +1,11 @@
 .appt-data-list {
   list-style-type: none;
 }
+
+.icons {
+  margin-bottom: 20px;
+}
+
+.icon-show-details {
+  margin-top: 20px;
+}

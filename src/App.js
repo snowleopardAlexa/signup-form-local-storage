@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import {Card, CardBody, Form, Row, Col, Input, Button, Label, FormGroup, ListGroup, ListGroupItem} from 'reactstrap';
+import { FaTrashAlt } from 'react-icons/fa';
+import { BsFillPenFill, BsFillArrowDownCircleFill } from 'react-icons/bs';
+
 
 function App() {
 
@@ -131,7 +134,11 @@ return (
     <CardBody>
       {appts.map((appt, id) => (
         <ListGroup key={id} className="appt-data-list">
-           <ListGroupItem>
+          <div className="icons">
+          <BsFillPenFill />
+          <FaTrashAlt />
+          </div>
+          <ListGroupItem>
              {appt.petName}
           </ListGroupItem>
           <ListGroupItem>
@@ -149,6 +156,9 @@ return (
           <ListGroupItem>
              {appt.email}
          </ListGroupItem>
+         <div className="icon-show-details">
+           <BsFillArrowDownCircleFill />
+         </div>
         </ListGroup>  
       ))}
     </CardBody>
