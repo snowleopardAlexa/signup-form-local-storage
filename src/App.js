@@ -45,6 +45,12 @@ function App() {
     setEmail("");
   }
 
+  const deleteApptHandler = (id) => {
+    const oldAppts = [...appts];
+    const newAppts = oldAppts.filter((appt) => appt.id !== id);
+    setAppts(newAppts);
+  }
+
 return (
 <div className="pet-appt-form">
 <h2 style={{textAlign: 'center'}}>Pet Appointment Form</h2>
