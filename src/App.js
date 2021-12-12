@@ -14,7 +14,7 @@ function App() {
 
   const addFilledFormHandler = () => {
     const oldAppts = [...appts];
-    const newAppts = {
+    const newAppt = {
       petName,
       owner,
       date,
@@ -23,6 +23,23 @@ function App() {
       email,
       id:Math.floor(Math.random()*1000)
     }
+
+    const newAppts = oldAppts.concat(newAppt);
+
+    if (petName === "" || owner === "" || date === "" || time === "" || phoneNumber === "" || email === "") {
+      alert('Fields cannot be blank!');
+    } else {
+      const newAppts = oldAppts.concat(newAppt);
+    }
+
+    setAppts(newAppts);
+
+    setPetName("");
+    setOwner("");
+    setDate("");
+    setTime("");
+    setPhoneNumber("");
+    setEmail("");
   }
 
 return (
@@ -87,9 +104,9 @@ return (
       Number
     </Label>
     <Input
-      id="number"
+      id="exampleNumber"
       name="number"
-      type="number"
+      type="phone"
       value={phoneNumber}
       onChange={(e) => setPhoneNumber(e.target.value)}
     />
@@ -106,32 +123,34 @@ return (
     />
   </FormGroup>
   <Button onClick={addFilledFormHandler}>
-    Sign in
+    Save Appointment
   </Button>
 </Form>
 
  <Card>
     <CardBody>
-    <ListGroup>
-     <ListGroupItem>
-      Pet Name
-     </ListGroupItem>
-     <ListGroupItem>
-      Owner
-     </ListGroupItem>
-     <ListGroupItem>
-      Date
-     </ListGroupItem>
-     <ListGroupItem>
-      Time
-     </ListGroupItem>
-     <ListGroupItem>
-      Number
-     </ListGroupItem>
-     <ListGroupItem>
-      Email
-     </ListGroupItem>
-    </ListGroup>
+      {appts.map((appt, id) => (
+        <ListGroup key={id} className="appt-data-list">
+           <ListGroupItem>
+             {appt.petName}
+          </ListGroupItem>
+          <ListGroupItem>
+             {appt.owner}
+          </ListGroupItem>
+          <ListGroupItem>
+             {appt.date}
+          </ListGroupItem>
+          <ListGroupItem>
+             {appt.time}
+          </ListGroupItem>
+          <ListGroupItem>
+             {appt.phoneNumber}
+          </ListGroupItem>
+          <ListGroupItem>
+             {appt.email}
+         </ListGroupItem>
+        </ListGroup>  
+      ))}
     </CardBody>
   </Card>
 
