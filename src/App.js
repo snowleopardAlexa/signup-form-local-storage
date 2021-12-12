@@ -138,11 +138,11 @@ return (
 
  <Card>
     <CardBody>
-      {appts.map((appt, id) => (
-        <ListGroup key={id} className="appt-data-list">
+      {appts.map((appt, index) => (
+        <ListGroup key={index} className="appt-data-list">
           <div className="icons">
           <BsFillPenFill />
-          <FaTrashAlt />
+          <FaTrashAlt onClick={() => deleteApptHandler(appt.id)}/>
           </div>
           <ListGroupItem>
              {appt.petName}
