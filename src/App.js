@@ -26,6 +26,8 @@ return (
         <Input
           id="petName"
           type="text"
+          value={petName}
+          onChange={(e) => setPetName(e.target.value)}
         />
       </FormGroup>
     </Col>
@@ -37,6 +39,8 @@ return (
         <Input
           id="owner"
           type="text"
+          value={owner}
+          onChange={(e) => setOwner(e.target.value)}
         />
       </FormGroup>
     </Col>
@@ -50,6 +54,8 @@ return (
       name="date"
       placeholder="date placeholder"
       type="date"
+      value={date}
+      onChange={(e) => setDate(e.target.value)}
     />
   </FormGroup>
   <FormGroup>
@@ -59,19 +65,21 @@ return (
     <Input
       id="exampleTime"
       name="time"
-      placeholder="time placeholder"
       type="time"
+      value={time}
+      onChange={(e) => setTime(e.target.value)}
     />
   </FormGroup>
   <FormGroup>
-    <Label for="exampleNumber">
+    <Label for="number">
       Number
     </Label>
     <Input
-      id="exampleNumber"
+      id="number"
       name="number"
-      placeholder="number placeholder"
       type="number"
+      value={phoneNumber}
+      onChange={(e) => setPhoneNumber(e.target.value)}
     />
   </FormGroup>
   <FormGroup>
@@ -79,9 +87,10 @@ return (
       Email
     </Label>
     <Input
-      id="exampleAddress"
-      name="address"
-      placeholder="1234 Main St"
+      id="email"
+      name="email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
     />
   </FormGroup>
   <Button>
