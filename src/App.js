@@ -15,6 +15,8 @@ function App() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
 
+  const [isValid, setIsValid] = useState(false);
+
   const addFilledFormHandler = () => {
     const oldAppts = [...appts];
     const newAppt = {
@@ -31,8 +33,10 @@ function App() {
 
     if (petName === "" || owner === "" || date === "" || time === "" || phoneNumber === "" || email === "") {
       alert('Fields cannot be blank!');
+      setIsValid(true);
     } else {
       const newAppts = oldAppts.concat(newAppt);
+      setIsValid(false);
     }
 
     setAppts(newAppts);
@@ -66,6 +70,7 @@ return (
           type="text"
           value={petName}
           onChange={(e) => setPetName(e.target.value)}
+          error={isValid}
         />
       </FormGroup>
     </Col>
@@ -79,6 +84,7 @@ return (
           type="text"
           value={owner}
           onChange={(e) => setOwner(e.target.value)}
+          error={isValid}
         />
       </FormGroup>
     </Col>
@@ -94,6 +100,7 @@ return (
       type="date"
       value={date}
       onChange={(e) => setDate(e.target.value)}
+      error={isValid}
     />
   </FormGroup>
   <FormGroup>
@@ -106,6 +113,7 @@ return (
       type="time"
       value={time}
       onChange={(e) => setTime(e.target.value)}
+      error={isValid}
     />
   </FormGroup>
   <FormGroup>
@@ -118,6 +126,7 @@ return (
       type="phone"
       value={phoneNumber}
       onChange={(e) => setPhoneNumber(e.target.value)}
+      error={isValid}
     />
   </FormGroup>
   <FormGroup>
@@ -129,6 +138,7 @@ return (
       name="email"
       value={email}
       onChange={(e) => setEmail(e.target.value)}
+      error={isValid}
     />
   </FormGroup>
   <Button onClick={addFilledFormHandler}>
