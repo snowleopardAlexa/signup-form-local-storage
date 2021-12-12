@@ -57,6 +57,11 @@ function App() {
     setAppts(newAppts);
   }
 
+  useEffect(() => {
+    const localStorageAppts = JSON.parse(localStorage.getItem("appts"));
+    setAppts(localStorageAppts)
+  }, [setAppts]);
+
 return (
 <div className="pet-appt-form">
 <h2 style={{textAlign: 'center'}}>Pet Appointment Form</h2>
