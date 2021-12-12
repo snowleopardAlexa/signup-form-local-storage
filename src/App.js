@@ -41,6 +41,8 @@ function App() {
 
     setAppts(newAppts);
 
+    localStorage.setItem("appts", JSON.stringify(newAppts));
+
     setPetName("");
     setOwner("");
     setDate("");
