@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import {Form, Row, Col, Input, Button, Label, FormGroup} from 'reactstrap';
+import {Card, CardBody, Form, Row, Col, Input, Button, Label, FormGroup, ListGroup, ListGroupItem} from 'reactstrap';
 
 function App() {
 
@@ -12,6 +12,18 @@ function App() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
 
+  const addFilledFormHandler = () => {
+    const oldAppts = [...appts];
+    const newAppts = {
+      petName,
+      owner,
+      date,
+      time,
+      phoneNumber,
+      email,
+      id:Math.floor(Math.random()*1000)
+    }
+  }
 
 return (
 <div className="pet-appt-form">
@@ -93,10 +105,36 @@ return (
       onChange={(e) => setEmail(e.target.value)}
     />
   </FormGroup>
-  <Button>
+  <Button onClick={addFilledFormHandler}>
     Sign in
   </Button>
 </Form>
+
+ <Card>
+    <CardBody>
+    <ListGroup>
+     <ListGroupItem>
+      Pet Name
+     </ListGroupItem>
+     <ListGroupItem>
+      Owner
+     </ListGroupItem>
+     <ListGroupItem>
+      Date
+     </ListGroupItem>
+     <ListGroupItem>
+      Time
+     </ListGroupItem>
+     <ListGroupItem>
+      Number
+     </ListGroupItem>
+     <ListGroupItem>
+      Email
+     </ListGroupItem>
+    </ListGroup>
+    </CardBody>
+  </Card>
+
 </div>
   );
 }
